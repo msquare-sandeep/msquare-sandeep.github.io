@@ -1,0 +1,1816 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Skillkeepr Talent Service",
+        "version": "1"
+    },
+    "paths": {
+        "/interview-invitation/{jobDescriptionId}": {
+            "get": {
+                "summary": "getInterviewInvitation",
+                "description": "GET the interview invites against that particular jd",
+                "operationId": "getInterviewInvitation.get./interview-invitation/{jobDescriptionId}",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "jobDescriptionId",
+                        "in": "path",
+                        "description": "id of a job",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "startDate",
+                        "in": "query",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "startDate",
+                        "in": "query",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Fetched interview invitations successfully!",
+                        "schema": {
+                            
+                        }
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["interview"]
+            }
+        },
+        "/select-interview-slot": {
+            "post": {
+                "summary": "selectInterviewSlot",
+                "description": "",
+                "operationId": "selectInterviewSlot.post./select-interview-slot",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "slot",
+                        "in": "body",
+                        "description": "selects the interview slot",
+                        "required": true,
+                        "schema": {
+                          "$ref": "#/definitions/SelectSlot"
+                        }
+                      }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Interview scheduled successfully!"
+                    },
+                    "400": {
+                        "description": "The selected slot is not available. Please select a different slot."
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["interview"]
+            }
+        },
+        "/basic-interview-details/{interviewListId}": {
+            "get": {
+                "summary": "getInterviewBasicDetails",
+                "description": "",
+                "operationId": "getInterviewBasicDetails.get./basic-interview-details/{interviewListId}",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "interviewListId",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["interview"]
+            }
+        },
+        "/schedule": {
+            "post": {
+                "summary": "getAllSchedule",
+                "description": "",
+                "operationId": "getAllSchedule.post./schedule",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["schedule"]
+            }
+        },
+        "/interview/{interviewListId}/join": {
+            "get": {
+                "summary": "joinInterview",
+                "description": "",
+                "operationId": "joinInterview.get./interview/{interviewListId}/join",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "interviewListId",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["interview"]
+            }
+        },
+        "/interview-list/update-status": {
+            "post": {
+                "summary": "updateCandidateStatus",
+                "description": "",
+                "operationId": "updateCandidateStatus.post./interview-list/update-status",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["interview"]
+            }
+        },
+        "/interview/{interviewListId}/code-editor": {
+            "get": {
+                "summary": "getCodeEditorContent",
+                "description": "",
+                "operationId": "getCodeEditorContent.get./interview/{interviewListId}/code-editor",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "interviewListId",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["interview"]
+            }
+        },
+        "/candidate/dashboard": {
+            "get": {
+                "summary": "getTalentDashBoard",
+                "description": "",
+                "operationId": "getTalentDashBoard.get./candidate/dashboard",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["dashboard"]
+            }
+        },
+        "/candidate/jobOpenings": {
+            "get": {
+                "summary": "getJobOpenings",
+                "description": "",
+                "operationId": "getJobOpenings.get./candidate/jobOpenings",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["dashboard"]
+            }
+        },
+        "/candidate/applyJob": {
+            "post": {
+                "summary": "applyJobByCandidate",
+                "description": "",
+                "operationId": "applyJobByCandidate.post./candidate/applyJob",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["dashboard"]
+            }
+        },
+        "/candidate/invited-jds": {
+            "get": {
+                "summary": "getInvitedJds",
+                "description": "",
+                "operationId": "getInvitedJds.get./candidate/invited-jds",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["dashboard"]
+            }
+        },
+        "/interview/upcoming": {
+            "get": {
+                "summary": "getUpcomingInterviews",
+                "description": "",
+                "operationId": "getUpcomingInterviews.get./interview/upcoming",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["dashboard"]
+            }
+        },
+        "/talent/linkedInLogin": {
+            "get": {
+                "summary": "linkedInLogin",
+                "description": "",
+                "operationId": "linkedInLogin.get./talent/linkedInLogin",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["login"]
+            }
+        },
+        "/talent/linkedInLoginSuccess": {
+            "get": {
+                "summary": "linkedInLoginSuccess",
+                "description": "",
+                "operationId": "linkedInLoginSuccess.get./talent/linkedInLoginSuccess",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["login"]
+            }
+        },
+        "/talent/login": {
+            "post": {
+                "summary": "talentNativeLogin",
+                "description": "",
+                "operationId": "talentNativeLogin.post./talent/login",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["login"]
+            }
+        },
+        "/talent/public-login": {
+            "post": {
+                "summary": "talentPublicLogin",
+                "description": "",
+                "operationId": "talentPublicLogin.post./talent/public-login",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["login"]
+            }
+        },
+        "/talent/logout": {
+            "post": {
+                "summary": "talentLogout",
+                "description": "",
+                "operationId": "talentLogout.post./talent/logout",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["logout"]
+            }
+        },
+        "/talent/reset-password": {
+            "post": {
+                "summary": "resetTalentPassword",
+                "description": "",
+                "operationId": "resetTalentPassword.post./talent/reset-password",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["reset password"]
+            }
+        },
+        "/talent/forgot-password": {
+            "post": {
+                "summary": "talentForgotPassword",
+                "description": "",
+                "operationId": "talentForgotPassword.post./talent/forgot-password",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["forgot password"]
+            }
+        },
+        "/talent/forgot-password/{verificationID}": {
+            "post": {
+                "summary": "talentForgotPasswordVerify",
+                "description": "",
+                "operationId": "talentForgotPasswordVerify.post./talent/forgot-password/{verificationID}",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "verificationID",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["forgot password"]
+            }
+        },
+        "/talent/reset-after-forgot-password": {
+            "post": {
+                "summary": "talentResetPasswordInForgetFlow",
+                "description": "",
+                "operationId": "talentResetPasswordInForgetFlow.post./talent/reset-after-forgot-password",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["forgot password"]
+            }
+        },
+        "/candidate/stack": {
+            "post": {
+                "summary": "candidateAddStack",
+                "description": "",
+                "operationId": "candidateAddStack.post./candidate/stack",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["candidateProfile"]
+            },
+            "put": {
+                "summary": "candidateEditStack",
+                "description": "",
+                "operationId": "candidateEditStack.put./candidate/stack",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["candidateProfile"]
+
+            },
+            "delete": {
+                "summary": "candidateDeleteStack",
+                "description": "",
+                "operationId": "candidateDeleteStack.delete./candidate/stack",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["candidateProfile"]
+
+            }
+        },
+        "/candidate/education": {
+            "post": {
+                "summary": "candidateAddEducation",
+                "description": "",
+                "operationId": "candidateAddEducation.post./candidate/education",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["candidateProfile"]
+
+            },
+            "put": {
+                "summary": "candidateEditEducation",
+                "description": "",
+                "operationId": "candidateEditEducation.put./candidate/education",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["candidateProfile"]
+
+            },
+            "delete": {
+                "summary": "candidateDeleteEducation",
+                "description": "",
+                "operationId": "candidateDeleteEducation.delete./candidate/education",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["candidateProfile"]
+
+            }
+        },
+        "/candidate/certification": {
+            "post": {
+                "summary": "candidateAddCertification",
+                "description": "",
+                "operationId": "candidateAddCertification.post./candidate/certification",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["candidateProfile"]
+
+            },
+            "put": {
+                "summary": "candidateEditCertification",
+                "description": "",
+                "operationId": "candidateEditCertification.put./candidate/certification",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["candidateProfile"]
+
+            },
+            "delete": {
+                "summary": "candidateDeleteCertification",
+                "description": "",
+                "operationId": "candidateDeleteCertification.delete./candidate/certification",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["candidateProfile"]
+
+            }
+        },
+        "/candidate/company": {
+            "post": {
+                "summary": "candidateAddCompany",
+                "description": "",
+                "operationId": "candidateAddCompany.post./candidate/company",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["candidateProfile"]
+
+            },
+            "put": {
+                "summary": "candidateEditCompany",
+                "description": "",
+                "operationId": "candidateEditCompany.put./candidate/company",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["candidateProfile"]
+
+            },
+            "delete": {
+                "summary": "candidateDeleteCompany",
+                "description": "",
+                "operationId": "candidateDeleteCompany.delete./candidate/company",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["candidateProfile"]
+
+            }
+        },
+        "/candidate/{companyID}/project": {
+            "post": {
+                "summary": "candidateAddProject",
+                "description": "",
+                "operationId": "candidateAddProject.post./candidate/{companyID}/project",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "companyID",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["candidateProfile"]
+
+            },
+            "put": {
+                "summary": "candidateUpdateProject",
+                "description": "",
+                "operationId": "candidateUpdateProject.put./candidate/{companyID}/project",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "companyID",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["candidateProfile"]
+
+            },
+            "delete": {
+                "summary": "candidateDeleteProject",
+                "description": "",
+                "operationId": "candidateDeleteProject.delete./candidate/{companyID}/project",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "companyID",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["candidateProfile"]
+
+            }
+        },
+        "/candidate/total-experience": {
+            "post": {
+                "summary": "updateTotalExperience",
+                "description": "",
+                "operationId": "updateTotalExperience.post./candidate/total-experience",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["candidateProfile"]
+
+            }
+        },
+        "/candidate/profile/personalDetails": {
+            "post": {
+                "summary": "addPersonalDetails",
+                "description": "",
+                "operationId": "addPersonalDetails.post.candidate/profile/personalDetails",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["candidateProfile"]
+
+            }
+        },
+        "/candidate/profile/spouse": {
+            "post": {
+                "summary": "addSpouseDetails",
+                "description": "",
+                "operationId": "addSpouseDetails.post.candidate/profile/spouse",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["candidateProfile"]
+
+            }
+        },
+        "/candidate/profile/spouse/education": {
+            "post": {
+                "summary": "addSpouseEducation",
+                "description": "",
+                "operationId": "addSpouseEducation.post.candidate/profile/spouse/education",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["candidateProfile"]
+
+            },
+            "put": {
+                "summary": "editSpouseEducation",
+                "description": "",
+                "operationId": "editSpouseEducation.put.candidate/profile/spouse/education",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["candidateProfile"]
+
+            },
+            "delete": {
+                "summary": "deleteSpouseEducation",
+                "description": "",
+                "operationId": "deleteSpouseEducation.delete.candidate/profile/spouse/education",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["candidateProfile"]
+
+            }
+        },
+        "/candidate/save": {
+            "post": {
+                "summary": "candidateSaveAndContinue",
+                "description": "",
+                "operationId": "candidateSaveAndContinue.post./candidate/save",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["candidateProfile"]
+
+            }
+        },
+        "/talent/details": {
+            "get": {
+                "summary": "getTalentDetails",
+                "description": "",
+                "operationId": "getTalentDetails.get./talent/details",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["candidateProfile"]
+
+            }
+        },
+        "/candidate/resume/profile": {
+            "post": {
+                "summary": "updateProfileDetails",
+                "description": "",
+                "operationId": "updateProfileDetails.post./candidate/resume/profile",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["candidateProfile"]
+
+            }
+        },
+        "/candidate/profile/attachment": {
+            "get": {
+                "summary": "getSignedURL",
+                "description": "",
+                "operationId": "getSignedURL.get./candidate/profile/attachment",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["candidateProfile"]
+
+            }
+        },
+        "/candidate/resume/speciality": {
+            "post": {
+                "summary": "updateSpeciality",
+                "description": "",
+                "operationId": "updateSpeciality.post./candidate/resume/speciality",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["candidateProfile"]
+
+            }
+        },
+        "/candidate/resume/availability": {
+            "post": {
+                "summary": "updateAvailability",
+                "description": "",
+                "operationId": "updateAvailability.post./candidate/resume/availability",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["candidateProfile"]
+
+            }
+        },
+        "/candidate/details": {
+            "get": {
+                "summary": "getCandidateBasicDetails",
+                "description": "",
+                "operationId": "getCandidateBasicDetails.get./candidate/details",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["candidateProfile"]
+
+            }
+        },
+        "/candidate/public-url": {
+            "get": {
+                "summary": "getPublicProfileUrl",
+                "description": "",
+                "operationId": "getPublicProfileUrl.get./candidate/public-url",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["candidateProfile"]
+
+            }
+        },
+        "/candidate/public-data": {
+            "get": {
+                "summary": "getTalentPublicData",
+                "description": "",
+                "operationId": "getTalentPublicData.get./candidate/public-data",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["candidateProfile"]
+
+            }
+        },
+        "/candidate/confirm-immigration-preference-change": {
+            "post": {
+                "summary": "confirmImmigrationPreferenceChange",
+                "description": "",
+                "operationId": "confirmImmigrationPreferenceChange.post./candidate/confirm-immigration-preference-change",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["candidateProfile"]
+
+            }
+        },
+        "/candidate/resume/parse": {
+            "post": {
+                "summary": "uploadResumeForParsing",
+                "description": "",
+                "operationId": "uploadResumeForParsing.post./candidate/resume/parse",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "200 response"
+                    },
+                    "default": {
+                        "description": "Internal server error",
+                        "schema": {
+                          "$ref": "#/definitions/ErrorModel"
+                        }
+                      }
+                },
+                "tags": ["candidateProfile"]
+            }
+        }
+    },
+    "definitions": {
+        "ErrorModel": {
+            "type": "object",
+            "required": [
+              "code",
+              "message"
+            ],
+            "properties": {
+              "status": {
+                "type": "integer",
+                "format": "int32",
+                "example": 0
+              },
+              "message": {
+                "type": "string",
+                "example": "Internal server error"
+              },
+              "error": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "integer",
+                        "format": "int32",
+                        "example": 0
+                      },
+                      "message": {
+                        "type": "string",
+                        "example": "Cannot read properties of null"
+                      }
+                }
+              }
+            }
+          },
+          "SelectSlot": {
+            "type": "object",
+            "properties": {
+              "jobDescriptionId": {
+                "type": "string"
+              },
+              "collaborators": {
+                "type": "array",
+                "items": {
+                    "type": "string",
+                    "example":"630f24829a15a53e81db1f8f"
+                }
+              },
+              "recruiter": {
+                "type": "string",
+                "example": "6315afd3096eeb64cbab95b2"
+              },
+              "slot": {
+                "type": "object",
+                "properties": {
+                    "startTime": {
+                        "type": "number",
+                        "example":1670227814473
+                    },
+                    "endTime": {
+                        "type": "number",
+                        "example":1670227814473
+                    }
+                }
+              }
+            }
+          }
+    },
+    "securityDefinitions": {
+        "Authorization": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        }
+    }
+}
